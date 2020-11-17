@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class CurrencyServiceImpl implements CurrencyService{
+public class CurrencyCRUDServiceImpl implements CurrencyCRUDService {
 
     private final CurrencyRepository currencyRepository;
 

@@ -16,7 +16,7 @@ import javax.net.ssl.SSLException;
 public class SchedulerService {
 
     private final WebClientService webClientService;
-    private final CurrencyService currencyService;
+    private final CurrencyCRUDService currencyService;
 
     @Async
     @Scheduled(cron = "0 */5 * * * ?", zone = "GMT+2")

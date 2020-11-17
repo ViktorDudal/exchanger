@@ -11,7 +11,7 @@ import javax.persistence.Id;
 public class Currency {
 
     @Id
-    Long id;
+    private Long id;
 
     @Column
     private String ccy;
