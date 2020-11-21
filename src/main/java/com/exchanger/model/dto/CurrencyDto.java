@@ -6,7 +6,7 @@ import lombok.experimental.FieldDefaults;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CurrencyDTO {
+public class CurrencyDto {
 
     String ccy;
 

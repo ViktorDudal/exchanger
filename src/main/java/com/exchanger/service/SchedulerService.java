@@ -1,6 +1,6 @@
 package com.exchanger.service;
 
-import com.exchanger.model.dto.CurrencyDTO;
+import com.exchanger.model.dto.CurrencyDto;
 import com.exchanger.service.webclient.WebClientService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,12 +16,12 @@ import java.util.List;
 public class SchedulerService {
 
     private final WebClientService webClientService;
-    private final CurrencyCRUDServiceImpl currencyService;
+    private final CurrencyService currencyService;
 
     @Async
     @Scheduled(cron = "0 */5 * * * ?", zone = "GMT+2")
     public void updateCurrency() {
-        List<CurrencyDTO> currencies = webClientService.getCurrenciesRates();
+        List<CurrencyDto> currencies = webClientService.getCurrenciesRates();
         log.info("Currency rate updated: " + currencies);
         currencyService.save(currencyService.toCurrencyList(currencies));
     }

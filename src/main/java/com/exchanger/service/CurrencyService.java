@@ -1,7 +1,7 @@
 package com.exchanger.service;
 
 import com.exchanger.model.Currency;
-import com.exchanger.model.dto.CurrencyDTO;
+import com.exchanger.model.dto.CurrencyDto;
 import com.exchanger.repository.CurrencyRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-public class CurrencyCRUDServiceImpl {
+public class CurrencyService {
 
     private final CurrencyRepository currencyRepository;
 
@@ -20,15 +20,15 @@ public class CurrencyCRUDServiceImpl {
         currencyRepository.saveAll(currencies);
     }
 
-    public List<Currency> toCurrencyList(List<CurrencyDTO> currencyDTOList) {
+    public List<Currency> toCurrencyList(List<CurrencyDto> currencyDTOList) {
         return currencyDTOList.stream().map(this::toCurrency).collect(Collectors.toList());
     }
 
-    private Currency toCurrency(CurrencyDTO currencyDTO) {
+    private Currency toCurrency(CurrencyDto currencyDTO) {
         Currency currency = new Currency();
         currency.setDate(Instant.now());
-        currency.setCcy(currencyDTO.getCcy());
-        currency.setBase_ccy(currencyDTO.getBase_ccy());
+        currency.setConvertFrom(currencyDTO.getCcy());
+        currency.setConvertTo(currencyDTO.getBase_ccy());
         currency.setPurchasePrice(currencyDTO.getBuy());
         currency.setSellingPrice(currencyDTO.getSale());
         return currency;

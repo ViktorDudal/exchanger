@@ -1,6 +1,6 @@
 package com.exchanger.service.webclient;
 
-import com.exchanger.model.dto.CurrencyDTO;
+import com.exchanger.model.dto.CurrencyDto;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Primary;
@@ -20,10 +20,10 @@ public class WebClientServiceCurrenciesApi implements WebClientService {
     public static final String EXCHANGE_API = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
 
     @Override
-    public List<CurrencyDTO> getCurrenciesRates() {
+    public List<CurrencyDto> getCurrenciesRates() {
         WebClient currencyClient = WebClient.builder()
                 .baseUrl(EXCHANGE_API)
                 .build();
-        return Arrays.asList(Objects.requireNonNull(currencyClient.get().retrieve().bodyToMono(CurrencyDTO[].class).block()));
+        return Arrays.asList(Objects.requireNonNull(currencyClient.get().retrieve().bodyToMono(CurrencyDto[].class).block()));
     }
 }

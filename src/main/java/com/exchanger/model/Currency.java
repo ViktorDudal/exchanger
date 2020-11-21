@@ -20,9 +20,9 @@ public class Currency implements Serializable {
 
     Instant date;
 
-    String ccy;
+    String convertFrom;
 
-    String base_ccy;
+    String convertTo;
 
     Float purchasePrice;
 
