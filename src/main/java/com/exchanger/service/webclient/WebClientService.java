@@ -1,10 +1,10 @@
 package com.exchanger.service.webclient;
 
-import com.exchanger.model.Currency;
+import com.exchanger.model.dto.CurrencyDTO;
 
-import javax.net.ssl.SSLException;
+import java.util.List;
 
 public interface WebClientService {
 
-    Currency getCurrencyRate() throws SSLException;
+    List<CurrencyDTO> getCurrenciesRates();
 }

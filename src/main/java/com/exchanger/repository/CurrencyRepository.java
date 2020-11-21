@@ -1,7 +1,7 @@
 package com.exchanger.repository;
 
 import com.exchanger.model.Currency;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CurrencyRepository extends CrudRepository<Currency, Long> {
+public interface CurrencyRepository extends JpaRepository<Currency, Long> {
 }

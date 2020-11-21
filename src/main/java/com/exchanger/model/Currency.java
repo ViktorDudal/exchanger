@@ -1,27 +1,30 @@
 package com.exchanger.model;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.experimental.FieldDefaults;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.time.Instant;
 
 @Data
-@Entity(name = "currency")
-public class Currency {
+@Entity
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class Currency implements Serializable {
 
     @Id
-    private Long id;
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
+    @SequenceGenerator(name="seq", allocationSize=1)
+    Long id;
 
-    @Column
-    private String ccy;
+    Instant date;
 
-    @Column
-    private String base_ccy;
+    String ccy;
 
-    @Column
-    private Float purchasePrice;
+    String base_ccy;
 
-    @Column
-    private Float sellingPrice;
+    Float purchasePrice;
+
+    Float sellingPrice;
 }
