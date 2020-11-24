@@ -9,10 +9,7 @@ import lombok.experimental.FieldDefaults;
 public class CurrencyDto {
 
     String ccy;
-
     String base_ccy;
-
     Float buy;
-
     Float sale;
 }

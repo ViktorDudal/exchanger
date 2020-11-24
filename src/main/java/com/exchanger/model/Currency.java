@@ -19,12 +19,8 @@ public class Currency implements Serializable {
     Long id;
 
     Instant date;
-
     String convertFrom;
-
     String convertTo;
-
     Float purchasePrice;
-
     Float sellingPrice;
 }

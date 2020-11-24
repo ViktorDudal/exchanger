@@ -1,18 +1,26 @@
 package com.exchanger.controller;
 
+import com.exchanger.service.CurrencyService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+@Controller
+@RequiredArgsConstructor
 public class DefaultController {
+
+    private final CurrencyService currencyService;
 
     @GetMapping("/")
     public String mainPage(){
-        return "Simply empty page:)";
+        return "index";
     }
 
     @GetMapping("/table")
-    public String tablePage(){
-        return "Page with table of currencies:)";
+    public ModelAndView tablePage(){
+        ModelAndView modelAndView = new ModelAndView("table");
+        modelAndView.addObject("currencies", currencyService.getAllCurrencies());
+        return modelAndView;
     }
 }
