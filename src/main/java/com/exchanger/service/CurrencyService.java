@@ -20,6 +20,10 @@ public class CurrencyService {
         currencyRepository.saveAll(currencies);
     }
 
+    public List<Currency> getAllCurrencies() {
+        return currencyRepository.findAll();
+    }
+
     public List<Currency> toCurrencyList(List<CurrencyDto> currencyDTOList) {
         return currencyDTOList.stream().map(this::toCurrency).collect(Collectors.toList());
     }

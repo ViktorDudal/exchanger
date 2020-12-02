@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency table</title>
+</head>
+<body>
+<h1>Table of currencies!</h1>
+<table border="2 black" class="" id="rateTable" style="text-align: center; vertical-align: middle;">
+    <tr>
+        <th class="text-center" colspan="2">Convert</th>
+        <th rowspan="2" colspan="1">Buy</th>
+        <th rowspan="2" colspan="1">Sell</th>
+    </tr>
+    <tr>
+        <th class="text-center">From</th>
+        <th class="text-center">To</th>
+    </tr>
+    <tr th:each="currency : ${currencies}">
+        <td th:text="${currency.convertFrom}"></td>
+        <td th:text="${currency.convertTo}"></td>
+        <td th:text="${currency.purchasePrice}"></td>
+        <td th:text="${currency.sellingPrice}"></td>
+    </tr>
+</table>
+</body>
+</html>
